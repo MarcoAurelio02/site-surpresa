@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #050505;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 15px 10px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Brilho rosa neon no fundo */
+.glow-bg {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 105, 180, 0.15) 0%, rgba(0,0,0,0) 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Elementos decorativos (Patinhas e Gatos) */
+.floating-paws {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.paw-item {
+    position: absolute;
+    color: #ff8da1;
+    opacity: 0.7;
+    font-size: 16px;
+    filter: drop-shadow(0 0 5px rgba(255, 141, 161, 0.5));
+}
+
+.cat-sketch {
+    position: absolute;
+    color: #ff8da1;
+    opacity: 0.8;
+    font-size: 28px;
+    filter: drop-shadow(0 0 6px rgba(255, 141, 161, 0.4));
+}
+
+/* Modal / Overlay inicial de toque para áudio */
+.overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: #050505;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    text-align: center;
+    padding: 20px;
+}
+
+.overlay-card {
+    background: #111;
+    border: 2px solid #ff4d8d;
+    border-radius: 20px;
+    padding: 30px 20px;
+    box-shadow: 0 0 25px rgba(255, 77, 141, 0.3);
+    max-width: 320px;
+    width: 100%;
+}
+
+.overlay-card h2 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.overlay-card p {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.btn-abrir {
+    background: linear-gradient(135deg, #ff4d8d, #ff2a73);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 77, 141, 0.4);
+}
+
+/* Cabeçalho */
+header {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.title-main {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.title-main .heart-icon {
+    color: #e23333;
+}
+
+.subtitle-highlight {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.subtitle-highlight span {
+    color: #ff7096;
+    font-weight: 700;
+}
+
+.tagline {
+    font-size: 1.05rem;
+    color: #ffffff;
+}
+
+/* Player de Música */
+.player-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.btn-musica-custom {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 2px solid #ff4d8d;
+    border-radius: 12px;
+    color: #ffffff;
+    padding: 10px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 0 15px rgba(255, 77, 141, 0.2);
+}
+
+/* Carrossel 3D em Pilha */
+.carousel-stack-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 20;
+    padding: 10px;
+}
+
+.carousel-nav-btn.prev-btn { left: 5px; }
+.carousel-nav-btn.next-btn { right: 5px; }
+
+.cards-stack {
+    position: relative;
+    width: 180px;
+    height: 230px;
+}
+
+.card-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.card-item.active {
+    transform: translateX(0) scale(1);
+    z-index: 10;
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(255, 77, 141, 0.3);
+}
+
+.card-item.next-1 {
+    transform: translateX(45px) scale(0.88);
+    z-index: 8;
+    opacity: 0.85;
+    filter: brightness(0.8);
+}
+
+.card-item.next-2 {
+    transform: translateX(85px) scale(0.76);
+    z-index: 6;
+    opacity: 0.6;
+    filter: brightness(0.6);
+}
+
+.card-item.prev-1 {
+    transform: translateX(-45px) scale(0.88);
+    z-index: 8;
+    opacity: 0.85;
+    filter: brightness(0.8);
+}
+
+.card-item.prev-2 {
+    transform: translateX(-85px) scale(0.76);
+    z-index: 6;
+    opacity: 0.6;
+    filter: brightness(0.6);
+}
+
+.card-item.hidden {
+    transform: scale(0.6);
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Card da Carta de Amor */
+.carta-section {
+    position: relative;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.cat-illustration-top {
+    position: absolute;
+    top: -28px;
+    left: 15px;
+    z-index: 15;
+    font-size: 38px;
+}
+
+.cat-illustration-bottom {
+    position: absolute;
+    bottom: -10px;
+    right: 15px;
+    z-index: 15;
+    font-size: 38px;
+}
+
+.carta-card {
+    background-color: #000000;
+    border: 2.5px solid #ff4d8d;
+    border-radius: 24px;
+    padding: 30px 22px 25px 22px;
+    box-shadow: 0 0 20px rgba(255, 77, 141, 0.25);
+    position: relative;
+    z-index: 5;
+}
+
+.carta-card h2 {
+    text-align: center;
+    font-size: 1.55rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.carta-card p {
+    color: #f0f0f0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 16px;
+}
+
+.carta-card .assinatura {
+    margin-top: 25px;
+    color: #ffffff;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.carta-card .assinatura .heart-red {
+    color: #e23333;
+}
+
+footer {
+    text-align: center;
+    color: #777;
+    font-size: 0.75rem;
+    padding: 10px 0 20px 0;
+}

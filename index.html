@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o Meu Grande Amor ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="glow-bg"></div>
+
+    <audio id="meuAudio" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="overlay" class="overlay">
+        <div class="overlay-card">
+            <h2>Abra sua Surpresa ❤️</h2>
+            <p>Prepare o fone de ouvido para ouvir nossa música especial.</p>
+            <button class="btn-abrir" onclick="iniciarSite()">Clique para Entrar</button>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <!-- Patinhas no Fundo -->
+        <div class="floating-paws">
+            <i class="fas fa-paw paw-item" style="top: 15px; left: 10px; transform: rotate(-20deg);"></i>
+            <i class="fas fa-paw paw-item" style="top: 35px; left: 35px; transform: rotate(15deg); font-size: 12px;"></i>
+            <i class="fas fa-paw paw-item" style="top: 70px; left: 8px; transform: rotate(-10deg);"></i>
+            <i class="fas fa-paw paw-item" style="top: 20px; right: 15px; transform: rotate(30deg);"></i>
+            <i class="fa-solid fa-cat cat-sketch" style="top: 130px; left: 12px; transform: rotate(-15deg);"></i>
+            <i class="fa-solid fa-cat cat-sketch" style="top: 140px; right: 15px; transform: scaleX(-1) rotate(-10deg);"></i>
+        </div>
+
+        <header>
+            <h1 class="title-main">Para o Meu Grande<br>Amor <span class="heart-icon">❤️</span></h1>
+            <div class="subtitle-highlight"><span>6 anos</span> de uma história linda...</div>
+            <div class="tagline">Eu te amo mais do que TUDO! ❤️</div>
+        </header>
+
+        <div class="player-bar">
+            <button id="btnMusica" class="btn-musica-custom" onclick="alternarMusica()">
+                <i id="iconeMusica" class="fas fa-pause"></i>
+                <span id="textoMusica">Pausar Música</span>
+            </button>
+        </div>
+
+        <!-- Carrossel 3D com as 13 Fotos -->
+        <div class="carousel-stack-wrapper">
+            <button class="carousel-nav-btn prev-btn" onclick="mudarSlide(-1)">❮</button>
+            <div class="cards-stack" id="cardsStack">
+                <img src="imagens/foto1.jpeg" class="card-item" alt="Foto 1">
+                <img src="imagens/foto2.jpeg" class="card-item" alt="Foto 2">
+                <img src="imagens/foto3.jpeg" class="card-item" alt="Foto 3">
+                <img src="imagens/foto4.jpeg" class="card-item" alt="Foto 4">
+                <img src="imagens/foto5.jpeg" class="card-item" alt="Foto 5">
+                <img src="imagens/foto6.jpeg" class="card-item" alt="Foto 6">
+                <img src="imagens/foto7.png" class="card-item" alt="Foto 7">
+                <img src="imagens/foto8.jpeg" class="card-item" alt="Foto 8">
+                <img src="imagens/foto9.jpeg" class="card-item" alt="Foto 9">
+                <img src="imagens/foto10.jpeg" class="card-item" alt="Foto 10">
+                <img src="imagens/foto11.jpeg" class="card-item" alt="Foto 11">
+                <img src="imagens/foto12.png" class="card-item" alt="Foto 12">
+                <img src="imagens/foto13.jpeg" class="card-item" alt="Foto 13">
+            </div>
+            <button class="carousel-nav-btn next-btn" onclick="mudarSlide(1)">❯</button>
+        </div>
+
+        <!-- Carta de Amor -->
+        <div class="carta-section">
+            <div class="cat-illustration-top">🐱</div>
+            <div class="carta-card">
+                <h2>Nossa História</h2>
+                <p>
+                    Eu te pretendo querer, nem que pareça uma loucura, e que possamos caminhar juntos por muitos e muitos anos. Entre risos, abraços, momentos inesquecíveis e a nossa parceria diária, você é e sempre será o meu melhor caminho.
+                </p>
+                <p>
+                    Obrigado por transformar minha vida, por me dar um amor tão bonito e verdadeiro. Sou o cara mais sortudo do mundo por ter você ao meu lado em nossa caminhada. Me perdoe se eu te magoei, estou profundamente arrependido.
+                </p>
+                <div class="assinatura">
+                    Com todo o meu amor, para sempre. <span class="heart-red">❤️</span>
+                </div>
+            </div>
+            <div class="cat-illustration-bottom">🐾</div>
+        </div>
+
+        <footer>Feito com ❤️ para a mulher da minha vida</footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
